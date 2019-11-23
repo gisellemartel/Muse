@@ -1,6 +1,7 @@
 target/*
 .idea/*
-.iml/*
-.DS_Store/*
-
-.cmd/*
+*.iml
+*.DS_Store
+*.xml
+*.cmd
+mvnw
