@@ -1,5 +1,5 @@
 target/*
 .idea/*
-./back-end/idea/*
+back-end/.idea/*
 *.iml
 *.DS_Store
