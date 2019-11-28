@@ -33,21 +33,16 @@ Run the MuseApplication:
 ![Run](https://imgur.com/JYJkYZz)
 
 ## Step 7
-Test the REST API endpoint
-```
-$ curl localhost:8080/greeting
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<p>Hello, World!</p>
-</body>
-</html>
-~
-```
+If you are using regular code Editor  
+Download npm, mongodb, maven, and the rest mentioned above. Then  
 
-## Step 8
-Start writing some good old React :)
+from root go inside the **back-end** folder and run these two commands to start the back-end server
+```mvn clean install``` then  
+```mvn spring-boot:run```
+
+from root go inside the **client** folder and run these two commands to start the front-end server
+```npm install```
+```npm run start```  
+navigate to ***localhost:3000*** in your browser
+
+
