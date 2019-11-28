@@ -21,10 +21,12 @@ public class MuseApplication implements CommandLineRunner
 	@Override
 	public void run(String... args) throws Exception
 	{
+		
 		songRepo.deleteAll();
 
 		songRepo.save(new Song("Africa", "Toto",""));
 		songRepo.save(new Song("Arab Money", "Busta Rhymes", ""));
+		songRepo.save(new Song("Gak1", "byora",""));
 
 
 		System.out.println("finding all");
@@ -34,7 +36,6 @@ public class MuseApplication implements CommandLineRunner
 		}
 
 		System.out.println("Name");
-		System.out.println(songRepo.findBySongName("Africa"));
 
 		System.out.println("Artist");
 		for (Song song : songRepo.findByArtist("Busta Rhymes"))
