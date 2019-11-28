@@ -1,8 +1,9 @@
-back-end/.idea/*
+.idea
+back-end/.idea/
 back-end/bin/
 back-end/target/*
 client/node_modules/*
-client/package.json
+client/package-lock.json
 
 *.iml
 *.DS_Store
