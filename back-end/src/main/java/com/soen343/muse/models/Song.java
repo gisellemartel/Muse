@@ -1,9 +1,9 @@
 package com.soen343.muse.models;
 
-import lombok.Data;
+
 import org.springframework.data.annotation.Id;
 
-@Data
+
 public class Song {
     @Id
     private String id;
@@ -40,6 +40,7 @@ public class Song {
     public String getArtist() {
         return artist;
     }
+
 
     @Override
     public String toString() {

@@ -23,10 +23,22 @@ public class SongController {
     @Autowired
     private SongRepo songRepo;
 
-    /** return all songs */
+    /** return songs */
     @RequestMapping(value = {"", "/"}, produces = "application/json", method = RequestMethod.GET)
-    public List<Song> greeting(@RequestParam Map<String, String> params) {  
-        return songRepo.findAll();   
+    public List<Song> getSongs(@RequestParam Map<String, String> params) {  
+        
+        String title = params.getOrDefault("title", "");
+        String artist = params.getOrDefault("artist", "");
+        
+        if (!title.isEmpty() && !artist.isEmpty()) {
+            return songRepo.findByTitleAndArtist(title, artist);
+        } else if (!title.isEmpty()) {
+            return songRepo.findByTitle(title);
+        } else if (!artist.isEmpty()) {
+            return songRepo.findByArtist(artist);
+        }
+
+        return songRepo.findAll();
     }
 
 }

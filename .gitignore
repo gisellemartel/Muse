@@ -1,6 +1,8 @@
 target/*
 .idea/*
 back-end/.idea/*
-back-end/bin
+back-end/bin/
+back-end/target/
+
 *.iml
 *.DS_Store

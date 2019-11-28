@@ -26,8 +26,8 @@ public class MuseApplication implements CommandLineRunner
 
 		songRepo.save(new Song("Africa", "Toto",""));
 		songRepo.save(new Song("Arab Money", "Busta Rhymes", ""));
-		songRepo.save(new Song("Gak1", "byora",""));
-
+		songRepo.save(new Song("Kissed", "Sun",""));
+		
 
 		System.out.println("finding all");
 		for (Song song : songRepo.findAll())
