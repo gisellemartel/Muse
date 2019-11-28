@@ -1,8 +1,8 @@
-target/*
-.idea/*
 back-end/.idea/*
 back-end/bin/
-back-end/target/
+back-end/target/*
+client/node_modules/*
+client/package.json
 
 *.iml
 *.DS_Store
