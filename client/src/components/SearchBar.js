@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-// import { Link } from 'react-router-dom';
 import ReactAudioPlayer from 'react-audio-player';
 import Song from '../model/Song';
 import axios from 'axios';
