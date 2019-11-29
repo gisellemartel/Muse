@@ -4,7 +4,7 @@ import Song from '../model/Song';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Typography, Paper, Grid} from '@material-ui/core';
+import { Typography, Grid} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
@@ -237,27 +237,25 @@ class SearchBar extends Component {
             <MuiThemeProvider theme={theme}>
                 <Grid container spacing={6}>
                     <Grid item xs={12}>
-                        <Paper className={styles.paper}>
-                            <Autocomplete
-                                        id="artist-picker"
-                                        value={currentSong}
-                                        onChange={this.handleChange}
-                                        disableOpenOnFocus
-                                        options={library.sort((artist1, artist2) => -artist1.artist.localeCompare(artist2.artist))}
-                                        groupBy={library => library.artist}
-                                        getOptionLabel={option => option.title}
-                                        style={{ width: "100%"}}
-                                        renderInput={params => (
-                                            <TextField {...params} label="Search for artist or track..." variant="outlined" fullWidth />
-                                        )} 
-                                    /> 
-                        </Paper>
+                        <Autocomplete
+                                    id="artist-picker"
+                                    value={currentSong}
+                                    onChange={this.handleChange}
+                                    disableOpenOnFocus
+                                    options={library.sort((artist1, artist2) => -artist1.artist.localeCompare(artist2.artist))}
+                                    groupBy={library => library.artist}
+                                    getOptionLabel={option => option.title}
+                                    style={{ width: "100%"}}
+                                    renderInput={params => (
+                                        <TextField {...params} label="Search for artist or track..." variant="outlined" fullWidth />
+                                    )} 
+                                /> 
                     </Grid>
                     <Grid item xs={12}>
-                        <Paper className={styles.paper}>
+                        {/* <Paper className={styles.paper}> */}
                         <Typography color="secondary" variant="h4" style={{fontFamily: subheaderFont, fontSize: '16px', paddingBottom: '24px'}} >{message}</Typography>
-                            <AudioPlayer currentSong={this.state.currentSong}/>   
-                        </Paper>
+                        <AudioPlayer currentSong={this.state.currentSong}/>   
+                        {/* </Paper> */}
                     </Grid>
                 </Grid>   
             </MuiThemeProvider>

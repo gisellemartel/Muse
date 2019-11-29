@@ -24,28 +24,28 @@ const theme = createMuiTheme({
     
   });
 
+const subheaderFont = '"Baskervville", serif';
+const headerFont = '"Alatsi", sans-serif';
+
 const classes = {
     card: {
-        display: 'flex',
-        paddingBottom: "25px",
-        maxWidth: "700px",
-        minWidth: "600px",
-        height: "300px"
+        //backgroundColor: "#303030"
+        backgroundColor: "#1f1f1b"
       },
       details: {
         display: 'flex',
         flexDirection: 'column',
-        width: "50%"
       },
       content: {
-        // flex: '1 0 auto',
       },
       cover: {
-        float: "right",
-        position: "relative",
-        marginLeft: "10%",
-        minWidth: 275,
-        minHeight: 100
+        minHeight: 275,
+        maxWidth: 275,
+        marginBottom: "5%",
+        marginTop: "3%",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
       },
       controls: {
       },
@@ -61,30 +61,33 @@ class AudioPlayer extends Component {
         <MuiThemeProvider theme={theme}>
             {title && artist && album && cover && mp3? (
                 <Card className={classnames(classes.card)}>
-                <div className={classnames(classes.details)}>
-                    <CardContent className={classnames(classes.content)}>
-                        <Typography component="h5" variant="h5" color="secondary">
-                            {title}
-                        </Typography>
-                        <Typography variant="subtitle1" color="secondary">
-                            {artist}
-                        </Typography>
-                    </CardContent>
-                    <div className={classnames(classes.controls)}>
-                        <ReactAudioPlayer
-                        style={{padding: "12px"}}
-                        src={mp3}
-                        controls
-                        />
-                    </div>
-          
-                </div>
-                <CardMedia
-                    className={classnames(classes.cover)}
-                    image={cover}
-                    title={album}
-                />
-            </Card>
+                  <div className={classnames(classes.details)}>
+                      <CardContent className={classnames(classes.content)}>
+                          <Typography style={{fontFamily: headerFont, fontSize: '42px'}} component="h5" variant="h5" color="secondary">
+                              {title}
+                          </Typography>
+                          <Typography style={{fontFamily: subheaderFont, fontSize: '24px'}} variant="subtitle1" color="secondary">
+                              {artist}
+                          </Typography>
+                      </CardContent>
+                      <div style={{textAlign: "center"}}>
+                      <CardMedia
+                      className={classnames(classes.cover)}
+                      image={cover}
+                      title={album}
+                      />
+                      </div>
+                   
+                      <div className={classnames(classes.controls)}>
+                          <ReactAudioPlayer
+                          style={{padding: "12px"}}
+                          src={mp3}
+                          controls
+                          />
+                      </div>
+            
+                  </div>
+              </Card>
         ) : null
     }
      </MuiThemeProvider>

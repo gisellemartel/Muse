@@ -1,12 +1,18 @@
 import React from "react";
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { withStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
+import { red } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
     type: 'dark',
-  }
+    background: {
+      default: "#262621",
+    }
+  },
 });
+
+
 
 function Root(Component) {
   function WithRoot(props) {
