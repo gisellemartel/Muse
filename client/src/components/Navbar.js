@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, MuiThemeProvider, createMuiTheme, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { withStyles, MuiThemeProvider, createMuiTheme, AppBar, Typography } from '@material-ui/core';
 import '../App.css';
 
 const headerFont = '"Alatsi", sans-serif';
@@ -31,10 +31,10 @@ class Navbar extends Component {
       <MuiThemeProvider theme={custTheme}>
         <AppBar position="static">
               <Typography color="secondary" variant="h4" style={{fontFamily: headerFont, fontSize: '72px', paddingTop: '12px'}}>
-                Muse
+                muse
                 </Typography>
               <Typography color="secondary" variant="h4" style={{fontFamily: subheaderFont, fontSize: '16px', paddingBottom: '24px'}}>
-                  Download, Listen, Inspire
+                  download, listen, inspire
               </Typography>
           </AppBar>
       </MuiThemeProvider>
