@@ -1,55 +1,34 @@
-// import React, { Component } from 'react';
-// import ReactAudioPlayer from 'react-audio-player';
-// import Song from '../model/Song';
-// import axios from 'axios';
-// import SearchBar from './SearchBar';
-
-
-// class AudioPlayer extends Component {
-
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-
-//     return (
-//         <div> This is the audio player component </div>
-//     );
-//   }
-// }
-
-// export default AudioPlayer;
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactAudioPlayer from 'react-audio-player';
-import { withStyles, createMuiTheme, useTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
+import classnames from 'classnames';
+
 
 const theme = createMuiTheme({
     palette: {
-      primary: {
-        main: '#4702a3',
-        contrastText: '#fff',
-      },
-      secondary: {
-        main: '#fffde7',
-        contrastText: '#000',
-      },
+        primary: {
+            main: '#4702a3',
+            contrastText: '#fff',
+          },
+          secondary: {
+            main: '#fffde7',
+            contrastText: '#000',
+          },
+          type: 'dark',
     },
+    
   });
 
-const classes = theme => ({
+const classes = {
     card: {
         display: 'flex',
+        backgroundColor: "purple",
       },
       details: {
         display: 'flex',
@@ -61,62 +40,33 @@ const classes = theme => ({
       cover: {
         width: 151,
       },
-      controls: {
-        display: 'flex',
-        alignItems: 'center',
-        paddingLeft: theme.spacing(1),
-        paddingBottom: theme.spacing(1),
-      },
-      playIcon: {
-        height: 38,
-        width: 38,
-      },
-});
+};
+
 
 class AudioPlayer extends Component {
-    constructor(props) {
-        super(props);
-        const currentSong = this.props.currentSong;
-
-        console.log(currentSong);
-        this.state = {
-            mp3: currentSong.mp3,
-            title: currentSong.title,
-            artist: currentSong.artist,
-            album: currentSong.album,
-            message: currentSong.message,
-            cover: currentSong.cover
-        };
-
-      }
 
   render() {
-    const {title, artist, album, cover} = this.state;
+    const {title, artist, album, cover, mp3} = this.props.currentSong;
+    const { classes, backgroundColor } = this.props;
     return (
         <MuiThemeProvider theme={theme}>
-            {title && artist && album && cover? (
-                <Card className={classes.card}>
-                <div className={classes.details}>
+            {title && artist && album && cover && mp3? (
+                <Card className={classnames(classes.card)} style={{backgroundColor}}>
+                <Paper className={classes.details}>
                     <CardContent className={classes.content}>
-                    <Typography component="h5" variant="h5">
-                        {title}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        {artist}
-                    </Typography>
+                        <Typography component="h5" variant="h5" color="secondary">
+                            {title}
+                        </Typography>
+                        <Typography variant="subtitle1" color="secondary">
+                            {artist}
+                        </Typography>
                     </CardContent>
-                    <div className={classes.controls}>
-                    <IconButton aria-label="previous">
-                        {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-                    </IconButton>
-                    <IconButton aria-label="play/pause">
-                        <PlayArrowIcon className={classes.playIcon} />
-                    </IconButton>
-                    <IconButton aria-label="next">
-                        {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-                    </IconButton>
-                    </div>
-                </div>
+                    <ReactAudioPlayer
+                        style={{width: "90%", padding: "12px"}}
+                        src={mp3}
+                        controls
+                    />
+                </Paper>
                 <CardMedia
                     className={classes.cover}
                     image={cover}

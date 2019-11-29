@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
 
     return (
-      <SearchBar />
+      <SearchBar style={{padding: "50px"}} />
     );
   }
 }
