@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ReactAudioPlayer from 'react-audio-player';
 import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import Paper from '@material-ui/core/Paper';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -28,17 +27,27 @@ const theme = createMuiTheme({
 const classes = {
     card: {
         display: 'flex',
-        backgroundColor: "purple",
+        paddingBottom: "25px",
+        maxWidth: "700px",
+        minWidth: "600px",
+        height: "300px"
       },
       details: {
         display: 'flex',
         flexDirection: 'column',
+        width: "50%"
       },
       content: {
-        flex: '1 0 auto',
+        // flex: '1 0 auto',
       },
       cover: {
-        width: 151,
+        float: "right",
+        position: "relative",
+        marginLeft: "10%",
+        minWidth: 275,
+        minHeight: 100
+      },
+      controls: {
       },
 };
 
@@ -47,13 +56,13 @@ class AudioPlayer extends Component {
 
   render() {
     const {title, artist, album, cover, mp3} = this.props.currentSong;
-    const { classes, backgroundColor } = this.props;
+    const { classes } = this.props;
     return (
         <MuiThemeProvider theme={theme}>
             {title && artist && album && cover && mp3? (
-                <Card className={classnames(classes.card)} style={{backgroundColor}}>
-                <Paper className={classes.details}>
-                    <CardContent className={classes.content}>
+                <Card className={classnames(classes.card)}>
+                <div className={classnames(classes.details)}>
+                    <CardContent className={classnames(classes.content)}>
                         <Typography component="h5" variant="h5" color="secondary">
                             {title}
                         </Typography>
@@ -61,14 +70,17 @@ class AudioPlayer extends Component {
                             {artist}
                         </Typography>
                     </CardContent>
-                    <ReactAudioPlayer
-                        style={{width: "90%", padding: "12px"}}
+                    <div className={classnames(classes.controls)}>
+                        <ReactAudioPlayer
+                        style={{padding: "12px"}}
                         src={mp3}
                         controls
-                    />
-                </Paper>
+                        />
+                    </div>
+          
+                </div>
                 <CardMedia
-                    className={classes.cover}
+                    className={classnames(classes.cover)}
                     image={cover}
                     title={album}
                 />

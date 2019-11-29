@@ -48,7 +48,7 @@ const library = [
         mp3: "ArabMoney.mp3",
         artist: "Busta Rhymes",
         album: "Back on my B.S.",
-        cover: "https://ibb.co/Zc39cjK"
+        cover: "https://images-na.ssl-images-amazon.com/images/I/61WSBBfHEoL.jpg"
     },
   
     {
@@ -56,8 +56,81 @@ const library = [
         mp3: "Kissed.mp3",
         artist: "Sun",
         album: "Sun",
-        cover: "https://ibb.co/X5wCF4m"
+        cover: "http://www.astronomy.com/-/media/Images/News%20and%20Observing/News/2018/11/thesun.jpg?mw=600"
     },
+
+    {
+        title: "Ruins",
+        mp3: "Ruins.mp3",
+        artist: "Moon",
+        album: "Moon",
+        cover: "https://i1.sndcdn.com/avatars-000142013925-q9rp39-t500x500.jpg"
+    },
+
+    {
+        title: "Maiden Voyage",
+        mp3: "MaidenVoyage.mp3",
+        artist: "Herbie Hancock",
+        album: "Maiden Voyage",
+        cover: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Maiden_Voyage_%28Hancock%29.jpg/220px-Maiden_Voyage_%28Hancock%29.jpg"
+    },
+
+    {
+        title: "Pinch",
+        mp3: "Pinch.mp3",
+        artist: "Can",
+        album: "Ege Bamyasi",
+        cover: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Egebamyasialbumcover.jpg/220px-Egebamyasialbumcover.jpg"
+    },
+
+    {
+        title: "Hyper-Ballad",
+        mp3: "Hyper-Ballad.mp3",
+        artist: "Bjork",
+        album: "Post",
+        cover: "https://upload.wikimedia.org/wikipedia/en/3/3f/Bjork_Post.png"
+    },
+
+
+    {
+        title: "Bachelorette",
+        mp3: "Bechelorette.mp3",
+        artist: "Bjork",
+        album: "Homogenic",
+        cover: "https://upload.wikimedia.org/wikipedia/en/a/af/Björk_-_Homogenic.png"
+    },
+
+    {
+        title: "Auntie's Harp",
+        mp3: "AuntiesHarp.mp3",
+        artist: "Flying Lotus",
+        album: "Los Angeles",
+        cover: "https://static.stereogum.com/uploads/2018/06/Flying-Lotus-Los-Angeles-1528337036-640x640.jpg"
+    },
+
+    {
+        title: "Telephasic Workshop",
+        mp3: "TelephasicWorkshop.mp3",
+        artist: "Boards of Canada",
+        album: "Music Has the Right to Children",
+        cover: "https://upload.wikimedia.org/wikipedia/en/e/e9/Musichastherighttochildren.jpg"
+    },
+
+    {
+        title: "A Night in Tunisia",
+        mp3: "ANightinTunisia.mp3",
+        artist: "Art Blakey and the Jazz Messengers",
+        album: "A Night in Tunisia",
+        cover: "https://cdn3.volusion.com/gnvdh.kdfvm/v/vspfiles/photos/MMBST-84049-2.jpg"
+    },
+
+    {
+        title: "Optimistic",
+        mp3: "Optimistic.mp3",
+        artist: "Radiohead",
+        album: "Kid A",
+        cover: "https://media.pitchfork.com/photos/5929a1ebb1335d7bf1698393/1:1/w_320/dddaf5bb.jpg"
+    }
 ];
 
 class SearchBar extends Component {
@@ -95,9 +168,12 @@ class SearchBar extends Component {
                     this.setState({trackList, message: trackList.length > 0 ? '': 'no results :(, search something else'});
                     if(trackList.length > 0) {
         
-                        const mp3 = currentSong.mp3;
-                        const album = currentSong.album;
-                        const cover = currentSong.cover;
+                        const song = library.find((song) => {
+                            return song.title === title;
+                        });
+                        const mp3 = song.mp3;
+                        const album = song.album;
+                        const cover = song.cover;
 
                         this.setState({currentSong: {
                             title: title,
@@ -114,7 +190,7 @@ class SearchBar extends Component {
                     this.setState({trackList, message: trackList.length > 0 ? '': 'no results :(, search something else'});
                     if(trackList.length > 0) {
                         const song = library.find((song) => {
-                            return song.title == title;
+                            return song.title === title;
                         });
                         const mp3 = song.mp3;
                         const album = song.album;
@@ -135,7 +211,7 @@ class SearchBar extends Component {
                     this.setState({trackList, message: trackList.length > 0 ? '': 'no results :(, search something else'});
                     if(trackList.length > 0) {
                         const song = library.find((song) => {
-                            return song.title == title;
+                            return song.title === title;
                         });
                         const mp3 = song.mp3;
                         const album = song.album;
@@ -172,7 +248,7 @@ class SearchBar extends Component {
                                         getOptionLabel={option => option.title}
                                         style={{ width: "100%"}}
                                         renderInput={params => (
-                                            <TextField {...params} label="Find Music today..." variant="outlined" fullWidth />
+                                            <TextField {...params} label="Search for artist or track..." variant="outlined" fullWidth />
                                         )} 
                                     /> 
                         </Paper>

@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
 import SearchBar from './components/SearchBar';
 import Root from './Root';
 import PropTypes from 'prop-types';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 const theme = createMuiTheme({
   palette: {
@@ -22,7 +22,8 @@ const styles = {
     textAlign: 'center',
   },
   body: {
-    padding: "20%"
+    margin: "12%",
+    minWidth: "250px"
   }
 };
 
@@ -39,6 +40,7 @@ class App extends React.Component {
           <div className={classes.body}>
             <SearchBar/>
           </div>
+          <Typography variant="h6">Disclaimer: we do not own any of the copyrighted material used in this demo. For educational purposes only.</Typography>
         </div>
     </MuiThemeProvider>
     );
