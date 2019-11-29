@@ -1,106 +1,49 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
-import ReactAudioPlayer from 'react-audio-player';
-import Song from './model/Song';
-import axios from 'axios';
+import React from 'react';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import AudioPlayer from './components/AudioPlayer';
+import Root from './Root';
+import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-const songMap = {
-  "Africa" : "Africa.mp3",
-  "Arab Money": "ArabMoney.mp3",
-  "Kissed": "Kissed.mp3"
-}
-
-class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      songs:[], // is an array but only one is received per the current DB
-      title: '',
-      artist: '',
-      message: ''
-    };
-  }
-
-  //form submission
-  handleSubmit = (event) => {
-
-    const {title, artist} = this.state;
-
-    if(title && artist) {
-      axios.get(`api/songs/?title=${title}&artist=${artist}`).then((res ) =>{
-        let songs = (res.data.map(e => new Song(e)));
-        this.setState({songs, message: songs.length > 0 ? 'we have found': 'no results :(, search something else'})
-      })
-    }else if (title) {
-       axios.get(`api/songs/?title=${title}`).then((res)=>{
-        let songs = (res.data.map(e => new Song(e)));
-        this.setState({songs, message: songs.length > 0 ? 'we have found': 'no results :(, search something else'})
-      })
-    }else if (artist) {
-       axios.get(`api/songs/?artist=${artist}`).then((res ) =>{
-        let songs = (res.data.map(e => new Song(e)));
-        this.setState({songs, message: songs.length > 0 ? 'we have found': 'no results :(, search something else'})
-      })
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+        main: '#7112EF',
+    },
+    secondary: {
+        main: '#7112EF',
     }
-
-    event.preventDefault();
-    return false;
   }
+});
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+const styles = {
+  root: {
+    textAlign: 'center',
+  },
+};
+
+class App extends React.Component {
 
   render() {
-      const {songs, artist, title, message} = this.state;
-      const isInvalid = artist ==='' && title === '';
+    const { classes } = this.props;
     return (
-      <div>
-        <h3>hey Omar, search for something</h3>
-        <h5>our music library only contains:</h5>
-        <ul>
-          <li>
-            Africa by Toto
-          </li>
-          <li>
-            Arab Money by Busta Rhymes
-          </li>
-          <li>
-            Kissed by Sun
-          </li>
-        </ul>
-      <form onSubmit={this.handleSubmit}>
-              <label>
-                Title:
-                <input type="text" name="title" onChange={this.handleChange} className="App-form-input" />
-              </label>
-              <div>
-                <label>
-                Artist:
-                <input type="text" name="artist" onChange={this.handleChange} className="App-form-input" />
-              </label>
-              </div>
-              <input type="submit" value="Submit" disabled={isInvalid}/>
-      </form>
-      {message}
-      <ul>
-        {songs.map((song)=>(
-          <li key={song.title}>
-            {song.title} - {song.artist}
-          </li>
-        ))}
-      </ul>
-
-
-      {songs && <ReactAudioPlayer
-        src={songMap[title]}
-        controls
-      />}
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <Root />
+        <div className={classes.root}>
+          {/* <Typography color="primary">Hello</Typography> */}
+          <Navbar/>
+          <Home/>
+        </div>
+    </MuiThemeProvider>
     );
   }
 }
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+export default Root(withStyles(styles)(App));
