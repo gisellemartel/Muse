@@ -19,7 +19,9 @@ Open the project's `pom.xml` file when importing project
 ## Step 4
 Ensure some additional settings configured:
 
-![Spring Setting](https://imgur.com/g6Hr8Sa)
+<img src="https://imgur.com/g6Hr8Sa"
+alt="Spring Setting"
+style="float: left; margin-right: 10px;" />
 
 ## Step 5
 Run a basic MongoDB server locally in the foreground:
@@ -30,13 +32,17 @@ $ mongod --config /usr/local/etc/mongod.conf
 ## Step 6 
 Run the MuseApplication:
 
-![Run](https://imgur.com/JYJkYZz)
+<img src="https://imgur.com/JYJkYZz"
+alt="Run"
+style="float: left; margin-right: 10px;" />
 
 ## Step 7
 If you are using regular code Editor  
 Download npm, mongodb, maven, and the rest mentioned above. Then  
 
-from root go inside the **back-end** folder and run these two commands to start the back-end server
+###  Make sure that the MongoDB server is running in the background before continuing to the next 2 steps
+:
+from root go inside the **back-end** folder and run these two commands to start the back-end server.
 ```mvn clean install``` then  
 ```mvn spring-boot:run```
 

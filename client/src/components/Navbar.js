@@ -30,7 +30,7 @@ class Navbar extends Component {
     return (
       <MuiThemeProvider theme={custTheme}>
         <AppBar position="static">
-              <Typography color="secondary" variant="h4" style={{fontFamily: headerFont, fontSize: '72px', paddingTop: '12px'}}>
+              <Typography color="secondary" variant="h4" style={{fontFamily: headerFont, fontSize: '100px', paddingTop: '12px'}}>
                 muse
                 </Typography>
               <Typography color="secondary" variant="h4" style={{fontFamily: subheaderFont, fontSize: '16px', paddingBottom: '24px'}}>
