@@ -17,11 +17,38 @@ $ brew install mongodb-community
 ## Step 3
 Install IntelliJ Ultimate
 
-## Step 4
+## Step 4 (Creating New Project in IntelliJ)
+
 Open the project's `pom.xml` file when importing project
+<img src="https://i.imgur.com/AZ1YeSV.png"
+alt="Run"
+style="float: left; margin-right: 10px;" />
+
+
+Follow the next 4 steps  to create new project:
+### 1
+<img src="https://i.imgur.com/LAV5pJL.png"
+alt="Run"
+style="float: left; margin-right: 10px;" />
+
+### 2
+<img src="https://i.imgur.com/rOmjSjM.png"
+alt="Run"
+style="float: left; margin-right: 10px;" />
+
+### 3
+<img src="https://i.imgur.com/lHGve9c.png"
+alt="Run"
+style="float: left; margin-right: 10px;" />
+
+### 4
+<img src="https://i.imgur.com/mIuVZoh.png"
+alt="Run"
+style="float: left; margin-right: 10px;" />
+
 
 ## Step 5
-Ensure some additional settings configured:
+Ensure some additional settings configured by selecting Preferences --> Languages & Framworks --> 
 
 <img src="https://i.imgur.com/g6Hr8Sa.png"
 alt="Spring Setting"
