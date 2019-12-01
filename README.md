@@ -84,7 +84,7 @@ from root go inside the **back-end** folder and run these two commands to start 
 [Download npm package manager](https://www.npmjs.com)
 
 ### 2
-from root go inside the **client** folder and run these two commands to start the front-end server
+from root go inside the **client** folder using Terminal/Commandline and run these two commands to start the front-end server
 ```npm install```
 ```npm run start```  
 
