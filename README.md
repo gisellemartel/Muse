@@ -81,7 +81,7 @@ from root go inside the **back-end** folder and run these two commands to start 
 ## Step 8 (Run the Client app)
 
 ### 1
-Download npm package manager
+[Download npm package manager](https://www.npmjs.com)
 
 ### 2
 from root go inside the **client** folder and run these two commands to start the front-end server
