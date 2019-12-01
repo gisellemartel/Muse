@@ -24,7 +24,7 @@ public class MuseApplication implements CommandLineRunner
 		
 		songRepo.deleteAll();
 		
-		songRepo.save(new Song("Africa", "Toto","Toto IV", "https://www.musicdirect.com/Portals/0/Hotcakes/Data/products/00013a4e-0000-0000-0000-000000000000/medium/LSPC37728.jpg", "https://github.com/Nichita-Hariton/mp3Files/blob/master/Africa.mp3?raw=true"));
+		songRepo.save(new Song("Africa", "Toto","Toto IV", "https://www.musicdirect.com/Portals/0/Hotcakes/Data/products/00013a4e-0000-0000-0000-000000000000/medium/LSPC37728.jpg", "https://github.com/Nichita-Hariton/mp3Files/blob/master/Africa.mp3"));
 		songRepo.save(new Song("Arab Money", "Busta Rhymes", "Back on my B.S.", "https://images-na.ssl-images-amazon.com/images/I/61WSBBfHEoL.jpg", "https://github.com/Nichita-Hariton/mp3Files/blob/master/ArabMoney.mp3?raw=true"));
 		songRepo.save(new Song("Kissed", "Sun","Sun", "http://www.astronomy.com/-/media/Images/News%20and%20Observing/News/2018/11/thesun.jpg?mw=600", "https://github.com/Nichita-Hariton/mp3Files/blob/master/Kissed.mp3?raw=true"));
 		songRepo.save(new Song("Hyper-Ballad", "Bjork", "Post", "https://upload.wikimedia.org/wikipedia/en/3/3f/Bjork_Post.png", "https://github.com/Nichita-Hariton/mp3Files/blob/master/Hyper-Ballad.mp3?raw=true"));
