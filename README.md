@@ -15,7 +15,7 @@ $ brew install mongodb-community
 ```
 
 ## Step 3
-Install IntelliJ Ultimate
+Install IntelliJ Ultimate. If using a regular text editor, see step 7.
 
 
 ## Step 4 (Creating New Project in IntelliJ)
@@ -71,7 +71,7 @@ alt="Run"
 style="float: left; margin-right: 10px;" />
 
 If you are using regular code Editor  
-Download mongodb, maven, and the rest mentioned above. Then  
+Download mongodb, maven and npm and the rest mentioned above. Then  
 
 :
 from root go inside the **back-end** folder and run these two commands to start the back-end server.
