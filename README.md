@@ -17,6 +17,7 @@ $ brew install mongodb-community
 ## Step 3
 Install IntelliJ Ultimate
 
+
 ## Step 4 (Creating New Project in IntelliJ)
 
 Open the project's `pom.xml` file when importing project
@@ -46,6 +47,9 @@ style="float: left; margin-right: 10px;" />
 alt="Run"
 style="float: left; margin-right: 10px;" />
 
+
+## Step 4
+Open the project's `pom.xml` file when importing project (Located in back-end subfolder)
 
 ## Step 5
 Ensure some additional settings configured by selecting Preferences --> Languages & Framworks --> 
