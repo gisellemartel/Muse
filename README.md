@@ -80,6 +80,8 @@ from root go inside the **back-end** folder and run these two commands to start 
 
 ## Step 8 (Run the Client app)
 
+###  Again, ensure that both the MongoDB server and the back-end app are running in the foreground before continuing
+
 ### 1
 [Download npm package manager](https://www.npmjs.com)
 
