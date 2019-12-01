@@ -57,6 +57,7 @@ class AudioPlayer extends Component {
   render() {
     const {title, artist, album, cover, mp3} = this.props.currentSong;
     const { classes } = this.props;
+
     return (
         <MuiThemeProvider theme={theme}>
             {title && artist && album && cover && mp3? (
