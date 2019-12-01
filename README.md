@@ -48,11 +48,8 @@ alt="Run"
 style="float: left; margin-right: 10px;" />
 
 
-## Step 4
-Open the project's `pom.xml` file when importing project (Located in back-end subfolder)
-
 ## Step 5
-Ensure some additional settings configured by selecting Preferences --> Languages & Framworks --> 
+Ensure some additional settings configured by selecting Preferences --> Languages & Frameworks --> Spring
 
 <img src="https://i.imgur.com/g6Hr8Sa.png"
 alt="Spring Setting"
