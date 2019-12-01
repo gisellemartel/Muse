@@ -18,7 +18,7 @@ $ brew install mongodb-community
 Install IntelliJ Ultimate
 
 ## Step 4
-Open the project's `pom.xml` file when importing project
+Open the project's `pom.xml` file when importing project (Located in back-end subfolder)
 
 ## Step 5
 Ensure some additional settings configured:
