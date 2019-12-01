@@ -29,13 +29,16 @@ public class SongController {
         
         String title = params.getOrDefault("title", "");
         String artist = params.getOrDefault("artist", "");
+        String album = params.getOrDefault("album", "");
         
-        if (!title.isEmpty() && !artist.isEmpty()) {
+        if (!title.isEmpty() && !artist.isEmpty() && !album.isEmpty()) {
             return songRepo.findByTitleAndArtist(title, artist);
         } else if (!title.isEmpty()) {
             return songRepo.findByTitle(title);
         } else if (!artist.isEmpty()) {
             return songRepo.findByArtist(artist);
+        } else if (!album.isEmpty()) {
+            return songRepo.findByAlbum(album);
         }
 
         return songRepo.findAll();

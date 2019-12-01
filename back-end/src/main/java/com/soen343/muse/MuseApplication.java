@@ -24,18 +24,18 @@ public class MuseApplication implements CommandLineRunner
 		
 		songRepo.deleteAll();
 
-		songRepo.save(new Song("Africa", "Toto",""));
-		songRepo.save(new Song("Arab Money", "Busta Rhymes", ""));
-		songRepo.save(new Song("Kissed", "Sun",""));
-		songRepo.save(new Song("Hyper-Ballad", "Bjork", ""));
-		songRepo.save(new Song("Bachelorette", "Bjork", ""));
-		songRepo.save(new Song("Ruins", "Moon", ""));
-		songRepo.save(new Song("Maiden Voyage", "Herbie Hancock", ""));
-		songRepo.save(new Song("Auntie's Harp", "Flying Lotus", ""));
-		songRepo.save(new Song("Telephasic Workshop", "Boards of Canada", ""));
-		songRepo.save(new Song("A Night in Tunisia", "Art Blakey and the Jazz Messengers", ""));
-		songRepo.save(new Song("Pinch", "Can", ""));
-		songRepo.save(new Song("Optimistic", "Radiohead", ""));
+		songRepo.save(new Song("Africa", "Toto","Toto IV", "https://www.musicdirect.com/Portals/0/Hotcakes/Data/products/00013a4e-0000-0000-0000-000000000000/medium/LSPC37728.jpg"));
+		songRepo.save(new Song("Arab Money", "Busta Rhymes", "Back on my B.S.", "https://images-na.ssl-images-amazon.com/images/I/61WSBBfHEoL.jpg"));
+		songRepo.save(new Song("Kissed", "Sun","Sun", "http://www.astronomy.com/-/media/Images/News%20and%20Observing/News/2018/11/thesun.jpg?mw=600"));
+		songRepo.save(new Song("Hyper-Ballad", "Bjork", "Post", "https://upload.wikimedia.org/wikipedia/en/3/3f/Bjork_Post.png"));
+		songRepo.save(new Song("Bachelorette", "Bjork", "Homogenic", "https://upload.wikimedia.org/wikipedia/en/a/af/Björk_-_Homogenic.png"));
+		songRepo.save(new Song("Ruins", "Moon", "Moon", "https://i1.sndcdn.com/avatars-000142013925-q9rp39-t500x500.jpg"));
+		songRepo.save(new Song("Maiden Voyage", "Herbie Hancock", "Maiden Voyage", "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Maiden_Voyage_%28Hancock%29.jpg/220px-Maiden_Voyage_%28Hancock%29.jpg"));
+		songRepo.save(new Song("Auntie's Harp", "Flying Lotus", "Los Angeles", "https://static.stereogum.com/uploads/2018/06/Flying-Lotus-Los-Angeles-1528337036-640x640.jpg"));
+		songRepo.save(new Song("Telephasic Workshop", "Boards of Canada", "Music Has the Right to Children",      "https://upload.wikimedia.org/wikipedia/en/e/e9/Musichastherighttochildren.jpg"));
+		songRepo.save(new Song("A Night in Tunisia", "Art Blakey and the Jazz Messengers", "A Night in Tunisia", "https://cdn3.volusion.com/gnvdh.kdfvm/v/vspfiles/photos/MMBST-84049-2.jpg"));
+		songRepo.save(new Song("Pinch", "Can", "Ege Bamyasi", "https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Egebamyasialbumcover.jpg/220px-Egebamyasialbumcover.jpg"));
+		songRepo.save(new Song("Optimistic", "Radiohead", "Kid A", "https://media.pitchfork.com/photos/5929a1ebb1335d7bf1698393/1:1/w_320/dddaf5bb.jpg"));
 		
 
 		System.out.println("finding all");

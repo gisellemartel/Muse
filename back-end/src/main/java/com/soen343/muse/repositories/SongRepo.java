@@ -13,6 +13,9 @@ public interface SongRepo extends MongoRepository<Song, String>
  
      @Query(value = "{'artist': {$regex : '^?0$', $options: 'i'}}")
      List<Song> findByArtist(String artist);
+
+     @Query(value = "{'album': {$regex : '^?0$', $options: 'i'}}")
+     List<Song> findByAlbum(String album);
  
      @Query(value = "{'title': {$regex : '^?0$', $options: 'i'}, 'artist': {$regex : '^?1$', $options: 'i'}}")
      List<Song> findByTitleAndArtist(String title, String artist);

@@ -161,9 +161,11 @@ class SearchBar extends Component {
             this.setState({[currentSong]: currentSong});
             const title = currentSong.title;
             const artist = currentSong.artist;
+            const album = currentSong.album;
+            const cover = currentSong.cover;
 
-            if(title && artist) {
-                axios.get(`api/songs/?title=${title}&artist=${artist}`).then((res ) =>{
+            if(title && artist && album && cover) {
+                axios.get(`api/songs/?title=${title}&artist=${artist}&album=${album}&cover=${cover}`).then((res ) =>{
                     let trackList = (res.data.map(e => new Song(e)));
                     this.setState({trackList, message: trackList.length > 0 ? '': 'no results :(, search something else'});
                     if(trackList.length > 0) {

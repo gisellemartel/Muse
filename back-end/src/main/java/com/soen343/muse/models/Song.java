@@ -11,14 +11,16 @@ public class Song {
     private String title;
     private String artist;
     private String album;
+    private String cover;
 
     public Song() {
     }
 
-    public Song(String title, String artist, String album) {
+    public Song(String title, String artist, String album, String cover) {
         this.title = title;
         this.artist = artist;   
         this.album = album;
+        this.cover = cover;
     }
 
     
@@ -42,9 +44,12 @@ public class Song {
     }
 
 
+    public String getCover() { return cover; }
+
+
     @Override
     public String toString() {
-        return "Id: " + id + " | Title: " + title + " | Artist: " + artist;
+        return "Id: " + id + " | Title: " + title + " | Artist: " + artist + " | Album: " + album;
     }
 
 
