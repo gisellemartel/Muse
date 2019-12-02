@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 
 @SpringBootTest
-public class MuseApplicationTests {
+public class SongRepoTests {
 
 	@Autowired
 	private SongRepo songRepo;
@@ -27,8 +27,8 @@ public class MuseApplicationTests {
 	@Test
 	public void testFindAll()
 	{
-		for (Song song : songRepo.findAll()) {
-			System.out.println(song);
+		for (Song song : songRepo.findAll())
+		{
 			assertTrue(song != null);
 		}
 	}
@@ -38,8 +38,7 @@ public class MuseApplicationTests {
 	{
 		for (Song song : songRepo.findByArtist("Busta Rhymes"))
 		{
-			System.out.println(song);
-			assertTrue(song != null);
+			assertTrue(song.getArtist().contains("Busta Rhymes"));
 		}
 	}
 
@@ -48,19 +47,14 @@ public class MuseApplicationTests {
 	{
 		for (Song song : songRepo.findByTitle("Bachelorette"))
 		{
-			System.out.println(song);
-			assertTrue(song != null);
+			assertTrue(song.getTitle().contains("Bachelorette"));
 		}
 	}
 
 	@Test
 	public void negativeTestFindByTitle()
 	{
-		for (Song song : songRepo.findByTitle("InvalidName"))
-		{
-			System.out.println("Hello" + song);
-			assertTrue(song != null);
-		}
+		assertTrue(songRepo.findByTitle("InvalidName").size() == 0);
 	}
 
 	@Test
@@ -68,8 +62,7 @@ public class MuseApplicationTests {
 	{
 		for (Song song : songRepo.findByAlbum("Ege Bamyasi"))
 		{
-			System.out.println(song);
-			assertTrue(song != null);
+			assertTrue(song.getAlbum().contains("Ege Bamyasi"));
 		}
 	}
 
@@ -78,33 +71,18 @@ public class MuseApplicationTests {
 	{
 		for (Song song : songRepo.findByTitleAndArtist("Auntie's Harp", "Flying Lotus"))
 		{
-			System.out.println(song);
-			assertTrue(song != null);
-		}
-	}
-
-	@Test
-	public void findByTitleOrArtist() {
-		for (Song song : songRepo.findByTitleOrArtist("Optimistic", "Radiohead")) {
-			System.out.println(song);
-			assertTrue(song != null);
+			assertTrue(song.getArtist().contains("Flying Lotus"));
 		}
 
 	}
 
 	@Test
-	public void fetchSongs()
+	public void findByTitleOrArtist()
 	{
-		SongController tester = new SongController();
-		tester.setSongRepo(songRepo);
-		HashMap<String, String> params = new HashMap<String,String>();
-		params.put("artist", "Toto");
-		params.put("title", "Africa");
-		for (Song song : tester.getSongs(params))
+		for (Song song : songRepo.findByTitleOrArtist("Optimistic", "Radiohead"))
 		{
-			System.out.println(song);
-			assertTrue(song != null);
+			assertTrue(song.getArtist().contains("Radiohead"));
 		}
-	}
 
+	}
 }
