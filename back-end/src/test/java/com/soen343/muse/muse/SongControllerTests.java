@@ -1,13 +1,10 @@
 package com.soen343.muse.muse;
 
-import com.soen343.muse.MuseApplication;
 import com.soen343.muse.controllers.SongController;
 import com.soen343.muse.models.Song;
 import com.soen343.muse.repositories.SongRepo;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
@@ -24,12 +21,6 @@ public class SongControllerTests
 
 	@MockBean
 	private SongController songController;
-
-	@BeforeAll
-	public static void setUp()
-	{
-		SpringApplication.run(MuseApplication.class);
-	}
 
 	@Test
 	public void testFetchSongs()
