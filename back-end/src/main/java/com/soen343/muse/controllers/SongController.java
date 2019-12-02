@@ -44,4 +44,9 @@ public class SongController {
         return songRepo.findAll();
     }
 
+    public void setSongRepo(SongRepo songRepo)
+    {
+        this.songRepo = songRepo;
+    }
+
 }
