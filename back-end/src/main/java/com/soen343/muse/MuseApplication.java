@@ -21,7 +21,7 @@ public class MuseApplication implements CommandLineRunner
 	@Override
 	public void run(String... args) throws Exception
 	{
-		
+
 		songRepo.deleteAll();
 		
 		songRepo.save(new Song("Africa", "Toto","Toto IV", "https://www.musicdirect.com/Portals/0/Hotcakes/Data/products/00013a4e-0000-0000-0000-000000000000/medium/LSPC37728.jpg", "https://github.com/Nichita-Hariton/mp3Files/blob/master/Africa.mp3?raw=true"));
@@ -37,18 +37,5 @@ public class MuseApplication implements CommandLineRunner
 		songRepo.save(new Song("Pinch", "Can", "Ege Bamyasi", "https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Egebamyasialbumcover.jpg/220px-Egebamyasialbumcover.jpg", "https://github.com/Nichita-Hariton/mp3Files/blob/master/Pinch.mp3?raw=true"));
 		songRepo.save(new Song("Optimistic", "Radiohead", "Kid A", "https://media.pitchfork.com/photos/5929a1ebb1335d7bf1698393/1:1/w_320/dddaf5bb.jpg", "https://github.com/Nichita-Hariton/mp3Files/blob/master/Optimistic.mp3?raw=true"));
 
-		System.out.println("finding all");
-		for (Song song : songRepo.findAll())
-		{
-			System.out.println(song);
-		}
-
-		System.out.println("Name");
-
-		System.out.println("Artist");
-		for (Song song : songRepo.findByArtist("Busta Rhymes"))
-		{
-			System.out.println(song);
-		}
 	}
 }
