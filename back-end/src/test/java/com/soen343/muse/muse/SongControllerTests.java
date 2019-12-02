@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.HashMap;
 
@@ -16,10 +17,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @SpringBootTest
-public class SongControllerTests {
-
+public class SongControllerTests
+{
 	@Autowired
 	private SongRepo songRepo;
+
+	@MockBean
+	private SongController songController;
 
 	@BeforeAll
 	public static void setUp()
@@ -30,12 +34,10 @@ public class SongControllerTests {
 	@Test
 	public void testFetchSongs()
 	{
-		SongController tester = new SongController();
-		tester.setSongRepo(songRepo);
 		HashMap<String, String> params = new HashMap<String,String>();
 		params.put("artist", "Toto");
 		params.put("title", "Africa");
-		for (Song song : tester.getSongs(params))
+		for (Song song : songController.getSongs(params))
 		{
 			assertTrue(song.getArtist().contains("Toto"));
 			assertTrue(song.getTitle().contains("Africa"));
@@ -45,12 +47,10 @@ public class SongControllerTests {
 	@Test
 	public void negativeTestFetchSongs()
 	{
-		SongController tester = new SongController();
-		tester.setSongRepo(songRepo);
 		HashMap<String, String> params = new HashMap<String,String>();
 		params.put("artist", "InvalidName");
 		params.put("title", "Unknown");
-		for (Song song : tester.getSongs(params))
+		for (Song song : songController.getSongs(params))
 		{
 			assertTrue(songRepo.findByTitle("InvalidName").size() == 0);
 		}
